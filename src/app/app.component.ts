@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 import { AuthService } from './auth.service';
 
@@ -7,15 +8,12 @@ import { AuthService } from './auth.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'ng-webshop';
   signedin = false;
+  signedin$: BehaviorSubject<boolean>;
 
-  constructor(private authService: AuthService) {}
-
-  ngOnInit() {
-    this.authService.signedin$.subscribe((signedin) => {
-      this.signedin = signedin;
-    });
+  constructor(private authService: AuthService) {
+    this.signedin$ = this.authService.signedin$;
   }
 }
