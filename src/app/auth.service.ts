@@ -5,15 +5,27 @@ interface UsernameAvailableResponse {
   available: true;
 }
 
+export interface SignupCredentials {
+  username: string;
+  password: string;
+  passwordConfirmation: string;
+}
+
+export interface SignupResponse {
+  username: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  rootUrl = 'https://api.angular-email.com';
+
   constructor(private http: HttpClient) {}
 
   usernameAvailable(username: string) {
     return this.http.post<UsernameAvailableResponse>(
-      'https://api.angular-email.com/auth/username',
+      `${this.rootUrl}/auth/username`,
       {
         username,
       }
@@ -21,11 +33,9 @@ export class AuthService {
   }
 
   signup(credentials: any) {
-    return this.http.post<UsernameAvailableResponse>(
-      'https://api.angular-email.com/auth/signup',
-      {
-        credentials,
-      }
+    return this.http.post<SignupResponse>(
+      `${this.rootUrl}/auth/signup`,
+      credentials
     );
   }
 }
