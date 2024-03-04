@@ -34,7 +34,6 @@ src
     │   ├── navbar
     │   ├── footer
     │   └── shared.module.ts
-    ├── core
-    │   └── authentication.service.ts
+    ├── authentication.service.ts
     ├── app.module.ts
     └── app-routing.module.ts
