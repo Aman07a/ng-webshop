@@ -7,10 +7,12 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './shared/shared.module';
 import { AuthHttpInterceptor } from './auth/auth-http.interceptor';
-import { ProductListComponent } from './api/product-list/product-list.component';
+
+import { ProductIndexComponent } from './api/products/product-index/product-index.component';
+import { OrderIndexComponent } from './api/orders/order-index/order-index.component';
 
 @NgModule({
-  declarations: [AppComponent, ProductListComponent],
+  declarations: [AppComponent, ProductIndexComponent, OrderIndexComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

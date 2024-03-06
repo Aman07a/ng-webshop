@@ -8,7 +8,15 @@ const routes: Routes = [
     path: 'products',
     canActivate: [authGuard],
     loadChildren: () =>
-      import('./products/products.module').then((mod) => mod.ProductsModule),
+      import('./api/products/products.module').then(
+        (mod) => mod.ProductsModule
+      ),
+  },
+  {
+    path: 'orders',
+    canActivate: [authGuard],
+    loadChildren: () =>
+      import('./api/orders/orders.module').then((mod) => mod.OrdersModule),
   },
 ];
 
