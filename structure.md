@@ -9,14 +9,18 @@ src
     │   │   └── match-username.validator.ts
     │   ├── auth.module.ts
     │   └── auth-routing.module.ts
-    ├── api
+    ├── products
     │   ├── product-list
     │   ├── product-details
-    │   ├── shopping-cart
+    │   ├── product-index
+    │   ├── products.module.ts
+    │   └── products-routing.module.ts
+    ├── orders
+    │   ├── order-list
+    │   ├── order-index
     │   ├── checkout
-    │   ├── orders
-    │   ├── api.module.ts
-    │   └── api-routing.module.ts
+    │   ├── orders.module.ts
+    │   └── orders-routing.module.ts
     ├── shared
     │   ├── navbar
     │   ├── footer
