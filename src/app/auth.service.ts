@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 interface UsernameAvailableResponse {
-  available: true;
+  available: boolean;
 }
 
 export interface SignupCredentials {
@@ -37,7 +37,9 @@ export class AuthService {
 
   signup(credentials: any) {
     return this.http
-      .post<SignupResponse>(`${this.rootUrl}/auth/signup`, credentials)
+      .post<SignupResponse>(`${this.rootUrl}/auth/signup`, credentials, {
+        withCredentials: true,
+      })
       .pipe(
         tap(() => {
           this.signedin$.next(true);
@@ -46,10 +48,14 @@ export class AuthService {
   }
 
   checkAuth() {
-    return this.http.get(`${this.rootUrl}/auth/signedin`).pipe(
-      tap((response) => {
-        console.log(response);
+    return this.http
+      .get(`${this.rootUrl}/auth/signedin`, {
+        withCredentials: true,
       })
-    );
+      .pipe(
+        tap((response) => {
+          console.log(response);
+        })
+      );
   }
 }
