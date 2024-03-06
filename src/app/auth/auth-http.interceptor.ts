@@ -9,12 +9,11 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class AuthHttpInterceptor implements HttpInterceptor {
-  constructor() {}
-
   intercept(
-    request: HttpRequest<unknown>,
+    req: HttpRequest<any>,
     next: HttpHandler
-  ): Observable<HttpEvent<unknown>> {
-    return next.handle(request);
+  ): Observable<HttpEvent<any>> {
+    console.log(req);
+    return next.handle(req);
   }
 }
