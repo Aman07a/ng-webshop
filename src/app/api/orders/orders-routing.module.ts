@@ -1,20 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { OrderIndexComponent } from './order-index/order-index.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { OrdersHomeComponent } from './orders-home/orders-home.component';
 
 const routes: Routes = [
-  // { path: '', component: OrderIndexComponent },
-  // {
-  //   path: 'order-list',
-  //   component: OrderListComponent,
-  // },
-  // {
-  //   path: 'checkout',
-  //   component: CheckoutComponent,
-  // },
+  {
+    path: '',
+    redirectTo: 'home', // Redirect to a specific route within the orders module
+    pathMatch: 'full',
+  },
+  {
+    path: 'home', // Change the base path for the child routes
+    component: OrdersHomeComponent,
+    children: [
+      { path: '', component: OrderListComponent }, // Use an empty path to display OrderListComponent
+      // Other child routes if needed
+    ],
+  },
 ];
 
 @NgModule({
@@ -22,3 +26,4 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class OrdersRoutingModule {}
+
