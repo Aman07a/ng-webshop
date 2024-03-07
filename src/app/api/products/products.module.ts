@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsHomeComponent } from './products-home/products-home.component';
@@ -21,6 +22,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ProductsRoutingModule,
     SharedModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
 })
 export class ProductsModule {}

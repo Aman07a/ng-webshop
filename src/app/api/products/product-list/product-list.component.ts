@@ -22,6 +22,8 @@ interface Product {
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
+  currentImage: string = '';
+  originalFVImages: { [productId: string]: string } = {};
 
   constructor(private http: HttpClient) {}
 
@@ -33,6 +35,7 @@ export class ProductListComponent implements OnInit {
     this.http.get<Product[]>('assets/api/products.json').subscribe(
       (data) => {
         this.products = data;
+        this.storeOriginalFVImages();
       },
       (error) => {
         console.error('Error fetching products:', error);
@@ -40,7 +43,22 @@ export class ProductListComponent implements OnInit {
     );
   }
 
+  storeOriginalFVImages() {
+    for (const product of this.products) {
+      this.originalFVImages[product.id] = product.images.FV;
+    }
+  }
+
   addToCart(product: Product) {
     console.log('Product added to cart:', product);
   }
+
+  changeImage(product: Product, isHovering: boolean) {
+    if (isHovering) {
+      product.images.FV = product.images.BV;
+    } else {
+      product.images.FV = this.originalFVImages[product.id];
+    }
+  }
 }
+
