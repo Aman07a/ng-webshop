@@ -6,15 +6,15 @@ import { OrderListComponent } from './order-list/order-list.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
-  { path: '', component: OrderIndexComponent },
-  {
-    path: 'order-list',
-    component: OrderListComponent,
-  },
-  {
-    path: 'checkout',
-    component: CheckoutComponent,
-  },
+  // { path: '', component: OrderIndexComponent },
+  // {
+  //   path: 'order-list',
+  //   component: OrderListComponent,
+  // },
+  // {
+  //   path: 'checkout',
+  //   component: CheckoutComponent,
+  // },
 ];
 
 @NgModule({
