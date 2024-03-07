@@ -43,3 +43,6 @@ Thumbs.db
 
 # Dev: Environments
 src/environments/environment.development.ts
+
+# API: Assets
+src/assets/api

@@ -1,1 +1,27 @@
-<p>product-list works!</p>
+<div class="ui container">
+  <h2 class="ui dividing">Products</h2>
+
+  <div class="ui four cards">
+    <div class="ui card custom-card" *ngFor="let product of products">
+      <div class="ui image">
+        <img
+          class="ui fluid image front-view"
+          [src]="product.images.FV"
+          [alt]="product.name"
+        />
+      </div>
+      <div class="content">
+        <div class="header">{{ product.name }}</div>
+        <div class="meta">
+          <span class="category">{{ product.category }}</span>
+        </div>
+      </div>
+      <div class="extra content">
+        <button class="ui button primary" (click)="addToCart(product)">
+          Add to Cart
+        </button>
+        <span class="right floated">€{{ product.price }}</span>
+      </div>
+    </div>
+  </div>
+</div>
