@@ -1,4 +1,5 @@
 export interface ProductColor {
+  colorCurrent?: string;
   colorNames?: string[];
   colorCodes?: string[];
 }
