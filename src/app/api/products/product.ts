@@ -10,4 +10,11 @@ export interface Product {
     POV: string;
   };
   price: string;
+  merch: string;
+  colors: string[];
+  size: string;
+  material: string;
+  origin: string;
+  features: string[];
+  additionalDescription: string;
 }
