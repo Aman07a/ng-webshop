@@ -1,3 +1,8 @@
+export interface ProductColor {
+  colorNames?: string[];
+  colorCodes?: string[];
+}
+
 export interface Product {
   id: string;
   name: string;
@@ -5,7 +10,7 @@ export interface Product {
   price: string;
   description: string;
   additionalDescription?: string;
-  colors?: ProductColor[];
+  colors?: ProductColor;
   features?: string[];
   images: {
     BV: string;
@@ -17,9 +22,4 @@ export interface Product {
   merch?: string;
   origin?: string;
   size?: string;
-}
-
-export interface ProductColor {
-  colorNames?: string[];
-  colorCodes?: string[];
 }
