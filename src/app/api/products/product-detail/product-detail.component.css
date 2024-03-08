@@ -1,0 +1,15 @@
+.color-box {
+  width: 32px;
+  height: 32px;
+  clip-path: polygon(
+    17% 0%,
+    83% 0%,
+    100% 16%,
+    100% 85%,
+    101% 101%,
+    17% 100%,
+    0% 85%,
+    0% 0%
+  );
+  border: 0.5px solid black;
+}
