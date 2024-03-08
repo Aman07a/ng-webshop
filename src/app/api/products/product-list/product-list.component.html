@@ -3,10 +3,18 @@
 
   <div class="ui cards">
     <div class="ui card custom-card" *ngFor="let product of products">
-      <div class="ui image" 
-           (mouseenter)="changeImage(product, true)" 
-           (mouseleave)="changeImage(product, false)">
-        <img class="ui fluid image" [src]="product.images.FV" [alt]="product.name" />
+      <div
+        class="ui image"
+        (mouseenter)="changeImage(product, true)"
+        (mouseleave)="changeImage(product, false)"
+      >
+        <a [routerLink]="['/products/home', product.id]">
+          <img
+            class="ui fluid image"
+            [src]="product.images.FV"
+            [alt]="product.name"
+          />
+        </a>
       </div>
 
       <div class="content">
