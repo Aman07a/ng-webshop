@@ -5,7 +5,7 @@ export interface Product {
   price: string;
   description: string;
   additionalDescription?: string;
-  colors?: string[];
+  colors?: ProductColor[];
   features?: string[];
   images: {
     BV: string;
@@ -17,4 +17,9 @@ export interface Product {
   merch?: string;
   origin?: string;
   size?: string;
+}
+
+export interface ProductColor {
+  colorNames?: string[];
+  colorCodes?: string[];
 }
