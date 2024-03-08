@@ -2,19 +2,19 @@ export interface Product {
   id: string;
   name: string;
   category: string;
-  description: string;
-  images: {
-    FV: string;
-    BV: string;
-    SV: string;
-    POV: string;
-  };
   price: string;
-  merch: string;
-  colors: string[];
-  size: string;
-  material: string;
-  origin: string;
-  features: string[];
-  additionalDescription: string;
+  description: string;
+  additionalDescription?: string;
+  colors?: string[];
+  features?: string[];
+  images: {
+    BV: string;
+    FV: string;
+    POV: string;
+    SV: string;
+  };
+  material?: string;
+  merch?: string;
+  origin?: string;
+  size?: string;
 }
