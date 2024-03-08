@@ -1,19 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-interface Product {
-  id: string;
-  name: string;
-  category: string;
-  description: string;
-  images: {
-    FV: string;
-    BV: string;
-    SV: string;
-    POV: string;
-  };
-  price: string;
-}
+import { Product } from '../product';
 
 @Component({
   selector: 'app-product-list',
