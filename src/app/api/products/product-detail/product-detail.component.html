@@ -1,23 +1,104 @@
 <div class="ui container" *ngIf="product">
-  <h2 class="ui dividing">{{ product.name }}</h2>
+  <!-- GRID -->
+  <div class="ui grid">
+    <!-- 3 horizontal by 2 vertical -->
+    <!-- Image FV -->
+    <div class="three wide column">
+      <img
+        class="ui fluid image"
+        [src]="product.images.FV"
+        [alt]="product.name"
+      />
+    </div>
 
-  <div class="ui cards">
-    <div class="ui card custom-card">
-      <div class="ui image">
-        <img class="ui fluid image" [src]="product.images.FV" [alt]="product.name" />
-      </div>
+    <!-- Image BV -->
+    <div class="three wide column">
+      <img
+        class="ui fluid image"
+        [src]="product.images.BV"
+        [alt]="product.name"
+      />
+    </div>
 
-      <div class="content">
-        <div class="header">{{ product.name }}</div>
-        <div class="meta">
-          <span class="category">{{ product.category }}</span>
+    <!-- Main Content -->
+    <div class="ten wide column">
+      <div class="ui grid">
+        <div class="row">
+          <div class="twelve wide column">
+            <div class="bold">{{ product.merch }}</div>
+            <div>{{ product.name }}</div>
+          </div>
+          <div class="four wide column">
+            {{ product.price }}
+          </div>
+        </div>
+
+        <div
+          class="row"
+          *ngIf="
+            product.colors &&
+            product.colors.colorCodes &&
+            product.colors.colorCurrent &&
+            product.colors.colorCodes.length > 0
+          "
+        >
+          <div class="four wide column">
+            <div class="bold">Color:</div>
+          </div>
+          <div class="four wide column">
+            <div class="bold">{{ product.colors.colorCurrent }}</div>
+          </div>
+          <div class="eight wide column">
+            <div class="ui horizontal list">
+              <div
+                class="item"
+                *ngFor="let color of product.colors.colorCodes; let i = index"
+              >
+                <div
+                  class="color-box"
+                  [style.background-color]="
+                    product.colors.colorCodes
+                      ? product.colors.colorCodes[i]
+                      : 'transparent'
+                  "
+                ></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="extra content">
-        <span class="right floated">€{{ product.price }}</span>
-      </div>
+    </div>
+
+    <!-- Image SV -->
+    <div class="three wide column">
+      <img
+        class="ui fluid image"
+        [src]="product.images.SV"
+        [alt]="product.name"
+      />
+    </div>
+
+    <!-- Image POV -->
+    <div class="three wide column">
+      <img
+        class="ui fluid image"
+        [src]="product.images.POV"
+        [alt]="product.name"
+      />
+    </div>
+
+    <!-- Main Description -->
+    <div class="ten wide column">
+      {{ product.description }}
+
+      <ul>
+        <li *ngFor="let feature of product.features">{{ feature }}</li>
+      </ul>
+
+      {{ product.additionalDescription }}
     </div>
   </div>
+  <!-- End: GRID -->
 </div>
 
 <div class="ui container" *ngIf="!product">

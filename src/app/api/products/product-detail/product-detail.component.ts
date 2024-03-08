@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProductService } from '../product.service'; // Import the ProductService
-import { Product } from '../product'; // Import the Product interface
+import { ProductService } from '../product.service';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-product-detail',
@@ -23,6 +23,7 @@ export class ProductDetailComponent implements OnInit {
       if (productId) {
         this.productService.getProduct(productId).subscribe((product) => {
           this.product = product; // Assign the fetched product to the component property
+          console.log(product);
         });
       }
     });
