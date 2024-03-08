@@ -37,7 +37,7 @@ export class SigninComponent implements OnInit {
 
     this.authService.signin(formValue).subscribe({
       next: () => {
-        this.router.navigateByUrl('/inbox');
+        this.router.navigateByUrl('/products');
       },
       error: ({ error }) => {
         if (error.username || error.password) {

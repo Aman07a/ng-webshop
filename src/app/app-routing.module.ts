@@ -6,13 +6,13 @@ import { authGuard } from './auth.guard';
 const routes: Routes = [
   {
     path: 'products',
-    // canActivate: [authGuard],
+    canActivate: [authGuard],
     loadChildren: () =>
       import('./api/products/products.module').then((mod) => mod.ProductsModule),
   },
   {
     path: 'orders',
-    // canActivate: [authGuard],
+    canActivate: [authGuard],
     loadChildren: () =>
       import('./api/orders/orders.module').then((mod) => mod.OrdersModule),
   },
