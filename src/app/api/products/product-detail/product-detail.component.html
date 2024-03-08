@@ -1,21 +1,25 @@
-<div class="ui container">
-  <h2 class="ui dividing"></h2>
+<div class="ui container" *ngIf="product">
+  <h2 class="ui dividing">{{ product.name }}</h2>
 
   <div class="ui cards">
     <div class="ui card custom-card">
       <div class="ui image">
-        <img class="ui fluid image" />
+        <img class="ui fluid image" [src]="product.images.FV" [alt]="product.name" />
       </div>
 
       <div class="content">
-        <div class="header"></div>
+        <div class="header">{{ product.name }}</div>
         <div class="meta">
-          <span class="category"></span>
+          <span class="category">{{ product.category }}</span>
         </div>
       </div>
       <div class="extra content">
-        <span class="right floated">€</span>
+        <span class="right floated">€{{ product.price }}</span>
       </div>
     </div>
   </div>
+</div>
+
+<div class="ui container" *ngIf="!product">
+  <p>Loading...</p>
 </div>
