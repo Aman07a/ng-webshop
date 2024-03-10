@@ -29,3 +29,18 @@
 .grid .row {
   margin-bottom: 0 !important;
 }
+
+.color-content .row {
+  align-items: center; /* Vertically center align items */
+}
+
+.color-content .eight.wide.column {
+  display: flex;
+  align-items: center; /* Vertically center content */
+}
+
+.color-content .color-box {
+  width: 30px; /* Adjust width of color box */
+  height: 30px; /* Adjust height of color box */
+  margin: 0 5px; /* Adjust margin between color boxes */
+}
