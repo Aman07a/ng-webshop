@@ -13,3 +13,19 @@
   );
   border: 0.5px solid black;
 }
+
+.image-container {
+  background: #ececec;
+}
+
+.ui.grid {
+  margin: 0;
+}
+
+.grid .column {
+  padding: 0.1em !important;
+}
+
+.grid .row {
+  margin-bottom: 0 !important;
+}
