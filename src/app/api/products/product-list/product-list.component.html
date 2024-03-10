@@ -1,5 +1,5 @@
 <div class="ui container">
-  <h2 class="ui dividing">Products</h2>
+  <h2 class="ui dividing"></h2>
 
   <div class="ui cards">
     <div class="ui card custom-card" *ngFor="let product of products">
@@ -18,9 +18,9 @@
       </div>
 
       <div class="content">
-        <div class="header">{{ product.name }}</div>
+        <b class="header merch">{{ product.merch?.toUpperCase() }}</b>
         <div class="meta">
-          <span class="category">{{ product.category }}</span>
+          <span class="name">{{ product.name }}</span>
         </div>
       </div>
       <div class="extra content">
