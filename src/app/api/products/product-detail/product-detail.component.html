@@ -25,7 +25,7 @@
       <div class="ui grid">
         <div class="row">
           <div class="twelve wide column">
-            <div class="bold">{{ product.merch }}</div>
+            <b>{{ product.merch?.toUpperCase() }}</b>
             <div>{{ product.name }}</div>
           </div>
           <div class="four wide column">
