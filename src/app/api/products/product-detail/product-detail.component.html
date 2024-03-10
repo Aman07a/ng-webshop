@@ -1,104 +1,136 @@
 <div class="ui container" *ngIf="product">
-  <!-- GRID -->
-  <div class="ui grid">
-    <!-- 3 horizontal by 2 vertical -->
-    <!-- Image FV -->
-    <div class="three wide column">
-      <img
-        class="ui fluid image"
-        [src]="product.images.FV"
-        [alt]="product.name"
-      />
-    </div>
-
-    <!-- Image BV -->
-    <div class="three wide column">
-      <img
-        class="ui fluid image"
-        [src]="product.images.BV"
-        [alt]="product.name"
-      />
-    </div>
-
-    <!-- Main Content -->
-    <div class="ten wide column">
-      <div class="ui grid">
-        <div class="row">
-          <div class="twelve wide column">
-            <b>{{ product.merch?.toUpperCase() }}</b>
-            <div>{{ product.name }}</div>
-          </div>
-          <div class="four wide column">
-            {{ product.price }}
-          </div>
-        </div>
-
-        <div
-          class="row"
-          *ngIf="
-            product.colors &&
-            product.colors.colorCodes &&
-            product.colors.colorCurrent &&
-            product.colors.colorCodes.length > 0
-          "
-        >
-          <div class="four wide column">
-            <div class="bold">Color:</div>
-          </div>
-          <div class="four wide column">
-            <div class="bold">{{ product.colors.colorCurrent }}</div>
-          </div>
-          <div class="eight wide column">
-            <div class="ui horizontal list">
-              <div
-                class="item"
-                *ngFor="let color of product.colors.colorCodes; let i = index"
-              >
-                <div
-                  class="color-box"
-                  [style.background-color]="
-                    product.colors.colorCodes
-                      ? product.colors.colorCodes[i]
-                      : 'transparent'
-                  "
-                ></div>
+  <div class="ui two column grid stackable">
+    <div class="row">
+      <div class="8 wide column">
+        <div class="ui two column grid stackable">
+          <div class="row">
+            <div class="8 wide column">
+              <div class="product-images">
+                <div class="product-image">
+                  <img
+                    class="ui fluid image"
+                    [src]="product.images.FV"
+                    [alt]="product.name"
+                  />
+                </div>
+                <div class="product-image">
+                  <img
+                    class="ui fluid image"
+                    [src]="product.images.SV"
+                    [alt]="product.name"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="8 wide column">
+              <div class="product-images">
+                <div class="product-image">
+                  <img
+                    class="ui fluid image"
+                    [src]="product.images.BV"
+                    [alt]="product.name"
+                  />
+                </div>
+                <div class="product-image">
+                  <img
+                    class="ui fluid image"
+                    [src]="product.images.POV"
+                    [alt]="product.name"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      <div class="8 wide column">
+        <div class="main">
+          <div class="main-content ui two column grid stackable">
+            <div class="row">
+              <div class="8 wide column">
+                <p style="font-weight: 700">
+                  {{ product.merch?.toUpperCase() }}
+                </p>
+                <div>{{ product.name }}</div>
+              </div>
+              <div class="8 wide column">€{{ product.price }}</div>
+            </div>
+          </div>
 
-    <!-- Image SV -->
-    <div class="three wide column">
-      <img
-        class="ui fluid image"
-        [src]="product.images.SV"
-        [alt]="product.name"
-      />
-    </div>
+          <div
+            class="color-content ui three column grid stackable"
+            *ngIf="
+              product.colors &&
+              product.colors.colorCodes &&
+              product.colors.colorCurrent &&
+              product.colors.colorCodes.length > 0
+            "
+          >
+            <div class="row">
+              <div class="four wide column">
+                <div>Color:</div>
+              </div>
+              <div class="four wide column">
+                <div>{{ product.colors.colorCurrent }}</div>
+              </div>
+              <div class="eight wide column">
+                <div class="ui grid">
+                  <div class="row">
+                    <div
+                      class="item"
+                      *ngFor="
+                        let color of product.colors?.colorCodes;
+                        let i = index
+                      "
+                    >
+                      <div
+                        class="color-box"
+                        [style.background-color]="
+                          product.colors.colorCodes
+                            ? product.colors.colorCodes[i]
+                            : 'transparent'
+                        "
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-    <!-- Image POV -->
-    <div class="three wide column">
-      <img
-        class="ui fluid image"
-        [src]="product.images.POV"
-        [alt]="product.name"
-      />
-    </div>
+          <div class="material-content ui two column grid stackable">
+            <div class="row">
+              <div class="8 wide column">
+                <div>Material:</div>
+              </div>
+              <div class="8 wide column">
+                <div>{{ product.material }}</div>
+              </div>
+            </div>
+          </div>
 
-    <!-- Main Description -->
-    <div class="ten wide column">
-      {{ product.description }}
+          <div class="origin-content ui two column grid stackable">
+            <div class="row">
+              <div class="8 wide column">
+                <div>Origin:</div>
+              </div>
+              <div class="8 wide column">
+                <div>{{ product.origin }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <ul>
-        <li *ngFor="let feature of product.features">{{ feature }}</li>
-      </ul>
-
-      {{ product.additionalDescription }}
+        <div class="main-description">
+          {{ product.description }}
+          <ul>
+            <li *ngFor="let feature of product.features">{{ feature }}</li>
+          </ul>
+          {{ product.additionalDescription }}
+        </div>
+      </div>
     </div>
   </div>
-  <!-- End: GRID -->
 </div>
 
 <div class="ui container" *ngIf="!product">
